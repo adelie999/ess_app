@@ -1,2 +1,1 @@
-# ess_app
-django + mysql + angular?
+pythonで1年越しに作ってみようと思う。
