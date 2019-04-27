@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+admin.site.site_title = '開発者専用ページ'
+admin.site.site_header = '開発者専用ページ'
+admin.site.index_title = '管理画面'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('student/', include('student.urls'))
