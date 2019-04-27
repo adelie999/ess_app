@@ -1,4 +1,4 @@
-""" this student urls """
+""" this student urls.py """
 from django.urls import path
 
 from . import views

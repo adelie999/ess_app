@@ -1,6 +1,5 @@
-""" this student view """
+""" this student view.py """
 from django.http import HttpResponse
-
 
 def index(request):
     """ index """
