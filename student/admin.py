@@ -1,3 +1,7 @@
+""" this admin.py """
 from django.contrib import admin
 
-# Register your models here.
+from .models import Students, Parents
+
+admin.site.register(Students)
+admin.site.register(Parents)
