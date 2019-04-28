@@ -1,11 +1,27 @@
-div#content {
-    margin-top: 3%;
-    margin-left: 5%;
-    margin-right: 5%;
+html,
+body {
+    height: 100%;
 }
 
-div#home-content {
-    margin-top: 10px;
-    background-color: darkslategrey;
-    height: 20px;
+div#rows {
+    margin-right: auto;
+    min-height: 92%;
+}
+
+body>div#rows {
+    height: auto;
+}
+
+.col-md-10 {
+    padding: 0;
+}
+
+.sub-content-area {
+    margin-left: auto;
+    padding-left: 15px;
+}
+
+.card {
+    max-width: 20rem;
+    max-height: 20rem;
 }
