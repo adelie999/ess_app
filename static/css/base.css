@@ -1,8 +1,11 @@
 div#content {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
-.navbar-text {
-    -webkit-text-fill-color: white;
+div#home-content {
+    margin-top: 10px;
+    background-color: darkslategrey;
+    height: 20px;
 }
