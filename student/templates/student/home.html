@@ -9,25 +9,34 @@
 
 <!-- breadcrumb -->
 {% block breadcrumb %}
-<li class="breadcrumb-item"><a href="/">ホーム</a></li>
+<li class="breadcrumb-item active" aria-current="page">ホーム</li>
 {% endblock %}
 
 <!-- sub-content -->
 {% block content %}
 <!-- 上段 -->
-<div class="card-deck" style="width: 40rem;">
-    <div class="card">
-        <h6 class="card-header">スケジュール</h6>
-        <div class="card-body">
-            <a href="#"><img class="card-img-top" src="{% static 'image/schedule.png' %}" alt="スケジュール"></a>
-            <p class="card-text">予定の確認</p>
+<div class="card-deck" style="width: 80rem;">
+    <div class="row">
+        <!-- スケジュールカード -->
+        <div class="col-md-6">
+            <div class="card h-100" style="width: 40rem;">
+                <h6 class="card-header">スケジュール</h6>
+                <div class="card-body">
+                    <a href="#"><img class="card-img-top" src="{% static 'image/schedule.png' %}" alt="スケジュール"></a>
+                </div>
+                <p class="card-text"> 予定の確認をしよう！</p>
+            </div>
         </div>
-    </div>
-    <div class="card">
-        <h6 class="card-header">生徒一覧</h6>
-        <div class="card-body">
-            <a href="/student/list"><img class="card-img-top" src="{% static 'image/student.png' %}" alt="生徒一覧"></a>
-            <p class="card-text">生徒の確認</p>
+        <!-- 生徒一覧カード -->
+        <div class="col-md-6">
+            <div class="card h-100" style="width: 40rem;">
+                <h6 class="card-header">生徒一覧</h6>
+                <div class="card-body">
+                    <a href="/student/list"><img class="card-img-top" src="{% static 'image/student.png' %}"
+                            alt="生徒一覧"></a>
+                </div>
+                <p class="card-text">生徒の確認をしよう！</p>
+            </div>
         </div>
     </div>
 </div>

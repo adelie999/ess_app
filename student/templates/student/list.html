@@ -16,12 +16,10 @@
 
 <!-- sub-content -->
 {% block content %}
-
 <div class="card-deck" style="width:70rem">
     <div class="row">
         {% for list in all_data %}
         <div class="col-md-3">
-            <!-- 1年生 -->
             <div class="card" style="width:16rem">
                 <h6 class="card-header">{{list}}</h6>
                 <div class="card-body">
@@ -36,5 +34,4 @@
         {% endfor %}
     </div>
 </div>
-
 {%endblock%}
