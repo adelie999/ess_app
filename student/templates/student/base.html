@@ -22,22 +22,30 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarsExample05">
             <ul class="navbar-nav mr-auto">
+                <!-- home link -->
                 <li class="nav-item">
                     <a class="nav-link" href="/">ホーム<span class="sr-only">(current)</span></a>
                 </li>
+                <!-- schedule link -->
                 <li class="nav-item">
                     <a class="nav-link" href="#">スケジュール</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/student/list">生徒一覧</a>
-                </li>
+                <!-- student infomation -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">生徒情報</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown05">
+                        <a class="dropdown-item" href="/student/list">生徒一覧</a>
+                        <a class="dropdown-item" href="#">生徒詳細</a>
+                    </div>
+                </li>
+                <!-- -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">経理処理</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown05">
-                        <a class="dropdown-item" href="#">考えてない</a>
-                        <a class="dropdown-item" href="#">考えてない</a>
-                        <a class="dropdown-item" href="#">考えてない</a>
+                        <a class="dropdown-item" href="#">売上</a>
+                        <a class="dropdown-item" href="#">請求</a>
                     </div>
                 </li>
             </ul>
