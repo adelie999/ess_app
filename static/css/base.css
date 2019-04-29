@@ -20,8 +20,3 @@ body>div#rows {
     margin-left: auto;
     padding-left: 15px;
 }
-
-.card {
-    max-width: 20rem;
-    max-height: 20rem;
-}

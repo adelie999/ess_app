@@ -1,0 +1,12 @@
+.card-img-top {
+    width: 50%;
+    height: auto;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.col-md-3 {
+    margin-bottom: 30px;
+}

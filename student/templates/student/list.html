@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'student/base.html' %}
+{% load static %}
+
+{% block title %}生徒一覧{%endblock%}
+{% block style %}
+<link href="{% static 'css/sub.css' %}" rel="stylesheet">
+{% endblock %}
+
+<!-- breadcrumb -->
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="/">ホーム</a></li>
+<li class="breadcrumb-item active" aria-current="page">生徒一覧</li>
+{% endblock %}
+
+
+<!-- sub-content -->
+{% block content %}
+
+<div class="card-deck" style="width:70rem">
+    <div class="row">
+        {% for list in all_data %}
+        <div class="col-md-3">
+            <!-- 1年生 -->
+            <div class="card" style="width:16rem">
+                <h6 class="card-header">{{list}}</h6>
+                <div class="card-body">
+                    <a href="#"><img class="card-img-top" src="{% static 'image/ahiruguchi_man.png' %}" alt="写真"></a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">生年月日：{{list.student_birthday}}</li>
+                    <li class="list-group-item">学　　年：{{list.student_school_year}}年生</li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{%endblock%}
