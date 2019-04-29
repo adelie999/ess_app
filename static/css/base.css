@@ -4,16 +4,17 @@ body {
 }
 
 div#rows {
-    margin-right: auto;
     min-height: 92%;
+    margin-right: auto;
 }
 
 body>div#rows {
     height: auto;
 }
 
-.col-md-10 {
-    padding: 0;
+.col-md-11 {
+    margin: 0px;
+    padding: 0px;
 }
 
 .sub-content-area {
