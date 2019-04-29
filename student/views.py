@@ -12,3 +12,7 @@ def student_list(request):
     """ this student_list view """
     context = {'all_data': Students.objects.order_by('student_school_year')}
     return render(request, 'student/list.html', context)
+
+def schedule(request):
+    """ this schedule view """
+    return render(request, 'student/schedule.html')

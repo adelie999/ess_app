@@ -1,6 +1,6 @@
 #ESS_APP
 
-#Description
+#Description<br>
 pythonで1年越しに作ってみようと思った英会話教室用アプリケーション。
 搭載（予定）機能は以下の通り。
 
