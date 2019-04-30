@@ -2,17 +2,17 @@
 ### version
 Python 3.7.3<br>
 Django 2.1.2<br>
+MySQL  8.0.15
 
-# Description#<br>
-pythonで1年越しに作ってみようと思った英会話教室用アプリケーション。<br>
-搭載（予定）機能は以下の通り。<br>
+### Overview
+英会話教室用の管理アプリケーション。<br>
 
--schedule<br>
+### Description
+1.schedule
 スケジュールの確認、登録をおこなえる。<br>
-リマインドメールとかもつくろうかなー<br>
 
--student_infomation<br>
+2.student_infomation
 生徒の確認、登録をおこなえる。<br>
 
--accounting<br>
+3.accounting
 売上やらなんやら<br>
