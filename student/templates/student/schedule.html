@@ -32,8 +32,31 @@
 
 <!-- sub-content -->
 {% block content %}
+
+<!-- Modal -->
+<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="ModalTitle" class="modal-title"></span>
+            </div>
+            <div class="modal-body">
+                <span id="ModqlBody"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">登録</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- fullcalendar -->
 <div id="calendar" class="calendar"></div>
 <div id="calendar-list" class="calendar"></div>
+
+<!-- js -->
 <script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/calendar-list.js' %}"></script>
 {% endblock %}

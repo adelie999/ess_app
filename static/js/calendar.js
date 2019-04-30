@@ -23,18 +23,17 @@ document.addEventListener('DOMContentLoaded', function () {
             }],
             dateClick: function (info) {
                 alert('Date: ' + info.dateStr);
-                alert('Resource ID: ' + info.resource);
             },
             eventClick: function(info) {
-                alert(info.event.title)
-                console.log(info.event.title)
+                $(ModalTitle).html(info.event.title);
+                $(ModalCenter).modal();
             }
         });
         calendar.render();
     });
 });
 
-// db問い合わせ
+// db参照
 function ajax_post() {
     return $.ajax({
         url: 'ajax/schedule',
