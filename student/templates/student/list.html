@@ -2,7 +2,10 @@
 {% extends 'student/base.html' %}
 {% load static %}
 
+<!-- title -->
 {% block title %}生徒一覧{%endblock%}
+
+<!-- css -->
 {% block style %}
 <link href="{% static 'css/sub.css' %}" rel="stylesheet">
 {% endblock %}
@@ -12,7 +15,6 @@
 <li class="breadcrumb-item"><a href="/">ホーム</a></li>
 <li class="breadcrumb-item active" aria-current="page">生徒一覧</li>
 {% endblock %}
-
 
 <!-- sub-content -->
 {% block content %}
