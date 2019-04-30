@@ -18,23 +18,35 @@
 <!-- sub-content -->
 {% block content %}
 <!-- 上段 -->
-<div class="card-deck" style="width: 80rem;">
+<div class="card-deck" style="width: 90rem;">
     <div class="row">
-        <!-- スケジュールカード -->
-        <div class="col-md-6">
-            <div class="card h-100" style="width: 20rem;">
+        <!-- スケジュール -->
+        <div class="col-md-3">
+            <div class="card h-100">
                 <h6 class="card-header">スケジュール</h6>
                 <div class="card-body">
-                    <a href="/student/schedule"><img class="card-img-top" src="{% static 'image/schedule.png' %}" alt="スケジュール"></a>
+                    <a href="/student/schedule"><img class="card-img-top" src="{% static 'image/schedule.png' %}"
+                            alt="スケジュール"></a>
                 </div>
             </div>
         </div>
-        <!-- 生徒一覧カード -->
-        <div class="col-md-6">
-            <div class="card h-100" style="width: 20rem;">
+        <!-- 生徒一覧 -->
+        <div class="col-md-3">
+            <div class="card h-100">
                 <h6 class="card-header">生徒一覧</h6>
                 <div class="card-body">
-                    <a href="/student/list"><img class="card-img-top" src="{% static 'image/student.png' %}" alt="生徒一覧"></a>
+                    <a href="/student/list"><img class="card-img-top" src="{% static 'image/student.png' %}"
+                            alt="生徒一覧"></a>
+                </div>
+            </div>
+        </div>
+        <!-- 生徒詳細-->
+        <div class="col-md-3">
+            <div class="card h-100">
+                <h6 class="card-header">生徒詳細</h6>
+                <div class="card-body">
+                    <a href="/student/list"><img class="card-img-top" src="{% static 'image/student.png' %}"
+                            alt="生徒詳細"></a>
                 </div>
             </div>
         </div>
@@ -43,29 +55,41 @@
 <br />
 
 <!-- 下段 -->
-<div class="card-deck" style="width: 80rem;">
+<div class="card-deck" style="width: 90rem;">
     <div class="row">
-        <div class="col-md-4">
-            <div class="card h-100" style="width:20rem">
+        <!-- 売上-->
+        <div class="col-md-3">
+            <div class="card h-100">
                 <h6 class="card-header">売上</h6>
                 <div class="card-body">
-                    <a href="#"><img class="card-img-top" src="{% static 'image/schedule.png' %}" alt="経理処理"></a>
+                    <a href="#"><img class="card-img-top" src="{% static 'image/money.png' %}" alt="経理処理"></a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card h-100" style="width:20rem">
+        <!-- 請求 -->
+        <div class="col-md-3">
+            <div class="card h-100">
                 <h6 class="card-header">請求</h6>
                 <div class="card-body">
-                    <a href="#"><img class="card-img-top" src="{% static 'image/schedule.png' %}" alt="経理処理"></a>
+                    <a href="#"><img class="card-img-top" src="{% static 'image/money.png' %}" alt="経理処理"></a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card h-100" style="width:20rem">
+        <!-- その他 -->
+        <div class="col-md-3">
+            <div class="card h-100">
                 <h6 class="card-header">その他</h6>
                 <div class="card-body">
-                    <a href="#"><img class="card-img-top" src="{% static 'image/schedule.png' %}" alt="経理処理"></a>
+                    <a href="#"><img class="card-img-top" src="{% static 'image/config.png' %}" alt="経理処理"></a>
+                </div>
+            </div>
+        </div>
+        <!-- 設定 -->
+        <div class="col-md-3">
+            <div class="card h-100">
+                <h6 class="card-header">設定</h6>
+                <div class="card-body">
+                    <a href="#"><img class="card-img-top" src="{% static 'image/config.png' %}" alt="経理処理"></a>
                 </div>
             </div>
         </div>
