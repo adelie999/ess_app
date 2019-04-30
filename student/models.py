@@ -8,6 +8,7 @@ class Parents(models.Model):
     db_table = 'parents'
     parent_name = models.CharField('氏名', max_length=30, unique=True)
     parent_email = models.EmailField('メールアドレス', max_length=50)
+    payment = models.IntegerField('月謝', default=0)
     created_at = models.DateTimeField('作成日')
     updated_at = models.DateTimeField('更新日')
 
@@ -31,3 +32,14 @@ class Students(models.Model):
 
     def __str__(self):
         return self.student_name
+
+
+class Schedule(models.Model):
+    """ this class schedule table """
+    db_table = 'schedule'
+    title = models.CharField('タイトル', max_length=50)
+    start_date = models.DateTimeField('開始日')
+    end_date = models.DateTimeField('終了日')
+    description = models.TextField('予定の内容')
+    created_at = models.DateTimeField('作成日')
+    updated_at = models.DateTimeField('更新日')

@@ -9,8 +9,10 @@
     <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
     {% block style %}{% endblock %}
-    {% block js %}{% endblock %}
     <link href="{% static 'icon/favicon.ico' %}" rel="icon">
+    <script type="text/javascript" src="{% static 'js/jquery/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    {% block js %}{% endblock %}    
 </head>
 
 <header>
@@ -49,7 +51,8 @@
             </ul>
             <!-- social link -->
             <a class="navbar-brand" href="#">
-                <img src="{% static 'icon/Twitter_Social_Icon_Circle_Color.png' %}" width="30" height="30" alt="twitter">
+                <img src="{% static 'icon/Twitter_Social_Icon_Circle_Color.png' %}" width="30" height="30"
+                    alt="twitter">
             </a>
             <a class="navbar-brand" href="#">
                 <img src="{% static 'icon/f-ogo_RGB_HEX-58.png' %}" width="30" height="30" alt="facebook">
@@ -82,9 +85,6 @@
             </div>
         </div>
     </div>
-    <!-- js -->
-    <script type="text/javascript" src="{% static 'js/jquery/jquery.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
 </body>
 
 

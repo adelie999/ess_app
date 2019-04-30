@@ -1,6 +1,7 @@
 """ this student view.py """
+from django.http.response import JsonResponse
 from django.shortcuts import render
-from .models import Students
+from .models import Students, Schedule
 
 
 def home(request):
@@ -16,3 +17,8 @@ def student_list(request):
 def schedule(request):
     """ this schedule view """
     return render(request, 'student/schedule.html')
+
+def ajax_schedule(request):
+    """ this ajax action """
+    ret = {"title": "戻り値:", "start":"2019-04-01", "end":"2019-04-01"}
+    return JsonResponse(ret)
