@@ -1,7 +1,7 @@
-# ESS_APP<br>
+# ESS_APP
 ### version
-Python 3.7.3
-Django 2.1.2
+Python 3.7.3<br>
+Django 2.1.2<br>
 
 # Description#<br>
 pythonで1年越しに作ってみようと思った英会話教室用アプリケーション。<br>
