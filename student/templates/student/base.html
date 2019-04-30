@@ -10,7 +10,7 @@
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
     {% block style %}{% endblock %}
     {% block js %}{% endblock %}
-    <link href="{% static 'ico/favicon.ico' %}" rel="icon">
+    <link href="{% static 'icon/favicon.ico' %}" rel="icon">
 </head>
 
 <header>
@@ -21,7 +21,7 @@
             aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarsExample05">
+        <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <!-- home link -->
                 <li class="nav-item">
@@ -31,25 +31,38 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/student/schedule">スケジュール</a>
                 </li>
-                <!-- student infomation -->
+                <!-- student infomation link -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">生徒情報</a>
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">生徒情報</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown05">
                         <a class="dropdown-item" href="/student/list">生徒一覧</a>
                         <a class="dropdown-item" href="#">生徒詳細</a>
                     </div>
                 </li>
-                <!-- -->
+                <!-- accounting link -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">経理処理</a>
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">経理処理</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown05">
                         <a class="dropdown-item" href="#">売上</a>
                         <a class="dropdown-item" href="#">請求</a>
                     </div>
                 </li>
             </ul>
+            <!-- social link -->
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'icon/Twitter_Social_Icon_Circle_Color.png' %}" width="30" height="30" alt="twitter">
+            </a>
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'icon/f-ogo_RGB_HEX-58.png' %}" width="30" height="30" alt="facebook">
+            </a>
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'icon/LINE_SOCIAL_Basic.png' %}" width="30" height="30" alt="line">
+            </a>
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'icon/Layout_App_Large.png' %}" width="30" height="30" alt="instagram">
+            </a>
             <span class="navbar-text text-white">ようこそ　管理者　さん</span>
         </div>
     </nav>
@@ -58,29 +71,8 @@
 <body>
     <!-- base-content -->
     <div id="rows" class="row">
-        <!-- sidebar -->
-        <div class="col-md-1 d-flex bg-dark sidebar">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link text-secondary">- LINK -</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#">facebook</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#">twitter</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#">google+</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#">line</a>
-                </li>
-            </ul>
-        </div>
-
         <!-- main-content -->
-        <div class="col-md-11 bg-light">
+        <div class="col-md-12 bg-light">
             <!-- breadcrumb -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -93,6 +85,7 @@
             </div>
         </div>
     </div>
+    <!-- js -->
     <script type="text/javascript" src="{% static 'js/jquery/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
 </body>
