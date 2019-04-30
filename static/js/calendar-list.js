@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var calendar2 = new FullCalendar.Calendar(calendarEl1, {
         plugins: ['list', 'interaction'],
         height: 580,
-        defaultView: 'listWeek',
+        defaultView: 'listDay',
         navLinks: true, // can click day/week names to navigate views
         editable: true,
         eventLimit: true, // allow "more" link when too many events
