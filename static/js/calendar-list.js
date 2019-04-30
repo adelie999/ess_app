@@ -1,16 +1,12 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     
-    var calendarEl = document.getElementById('calendar');
+    var calendarEl1 = document.getElementById('calendar-list');
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
+    var calendar2 = new FullCalendar.Calendar(calendarEl1, {
+        plugins: ['list', 'interaction'],
         height: 580,
-        plugins: ['dayGrid', 'timeGrid', 'interaction'],
-        header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-        },
-        defaultDate: '2019-04-12',
+        defaultView: 'listWeek',
         navLinks: true, // can click day/week names to navigate views
         editable: true,
         eventLimit: true, // allow "more" link when too many events
@@ -72,5 +68,5 @@ document.addEventListener('DOMContentLoaded', function () {
         ]
     });
 
-    calendar.render();
+    calendar2.render();
 });
