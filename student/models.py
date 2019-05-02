@@ -9,8 +9,8 @@ class Parents(models.Model):
     parent_name = models.CharField('氏名', max_length=30, unique=True)
     parent_email = models.EmailField('メールアドレス', max_length=50)
     payment = models.IntegerField('月謝', default=0)
-    created_at = models.DateTimeField('作成日')
-    updated_at = models.DateTimeField('更新日')
+    created_at = models.DateTimeField('作成日', auto_now_add=True)
+    updated_at = models.DateTimeField('更新日', auto_now=True)
 
     def __str__(self):
         return self.parent_name
@@ -27,8 +27,8 @@ class Students(models.Model):
         '学年', validators=[MinValueValidator(1), MaxValueValidator(6)], default=1)
     parent_name = models.ForeignKey(
         Parents, on_delete=models.CASCADE, to_field='parent_name', verbose_name='保護者氏名')
-    created_at = models.DateTimeField('作成日')
-    updated_at = models.DateTimeField('更新日')
+    created_at = models.DateTimeField('作成日', auto_now_add=True)
+    updated_at = models.DateTimeField('更新日', auto_now=True)
 
     def __str__(self):
         return self.student_name
@@ -41,5 +41,5 @@ class Schedule(models.Model):
     start_date = models.DateTimeField('開始日')
     end_date = models.DateTimeField('終了日')
     description = models.TextField('予定の内容')
-    created_at = models.DateTimeField('作成日')
-    updated_at = models.DateTimeField('更新日')
+    created_at = models.DateTimeField('作成日', auto_now_add=True)
+    updated_at = models.DateTimeField('更新日', auto_now=True)

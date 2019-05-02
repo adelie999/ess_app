@@ -1,5 +1,4 @@
 """ this student view.py """
-import json
 from django.http.response import JsonResponse
 from django.shortcuts import render
 from django.core import serializers

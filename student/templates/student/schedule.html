@@ -39,13 +39,15 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <span id="ModalTitle" class="modal-title"></span>
+                <h5 id="ModalTitle" class="modal-title"></h5>
             </div>
             <div class="modal-body">
-                <span id="ModqlBody"></span>
+                開始：<span id="ModalBodyStart"></span>　終了：<span id="ModalBodyEnd"></span>
+                <hr>
+                <span id="ModalBodyDescription"></span>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">登録</button>
+                <button type="button" class="btn btn-danger">削除</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
             </div>
         </div>
@@ -58,5 +60,4 @@
 
 <!-- js -->
 <script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/calendar-list.js' %}"></script>
 {% endblock %}
