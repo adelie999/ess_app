@@ -2,6 +2,7 @@
 import json
 from django.http.response import JsonResponse
 from django.shortcuts import render
+from django.core import serializers
 from .models import Students, Schedule
 
 
@@ -15,12 +16,13 @@ def student_list(request):
     context = {'all_data': Students.objects.order_by('student_school_year')}
     return render(request, 'student/list.html', context)
 
+
 def schedule(request):
     """ this schedule view """
     return render(request, 'student/schedule.html')
 
+
 def ajax_schedule(request):
     """ this ajax action """
-    test = {"title": "予定:", "start":"2019-04-01", "end":"2019-04-01"}
-    sh_text = Schedule.objects.all()
-    return JsonResponse(test)
+    temp = serializers.serialize("json", Schedule.objects.all())
+    return JsonResponse(temp, safe=False)
