@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     alert('Date: ' + info.dateStr);
                 },
                 eventClick: function (info) {
+                    $(delete_id).val(info.event.id);
                     $(ModalTitle).html(info.event.title);
                     $(ModalBodyStart).html(date_format2(info.event.start));
                     $(ModalBodyEnd).html(date_format2(info.event.end));
@@ -45,7 +46,36 @@ document.addEventListener('DOMContentLoaded', function () {
             calendar_list.render();
         });
 
+    
+$('#delete').click(function () {
+    console.log('test')
+      //formオブジェクトを取得する
+        var fm = document.getElementById("delete_form");
+        fm.delete_id.value = $(delete_id).val(); 
+        fm.method = "post"; 
+        fm.target = "_self"; 
+        fm.action = "ajax/schedule/delete";  // 例）"/php/sample.php"に指定する
+        fm.submit();
+    // $.ajax({
+    //     url: 'student/ajax/schedule/delete',
+    //     type: 'POST',
+    //     data: {'data':$(delete_id).val()},
+    //     contentType: "application/json",
+    //     beforeSend: function (xhr, settings) {
+    //         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+    //             xhr.setRequestHeader("X-CSRFToken", getCookie("csrftoken"));
+    //         }
+    //     },
+    //     success: function () {
+    //         console.log('OK')
+    //     },
+    //     error: function (xhr, status, error) {
+    //         alert(status + "\n" + "Status: " + xhr.status + "\n" + error);
+    //     }
+    // })
 });
+});
+
 
 // イベント設定
 function events_build(data) {
@@ -53,6 +83,7 @@ function events_build(data) {
     var events = [];
     for (var i in parse_data) {
         events.push({
+            id: parse_data[i].pk,
             title: parse_data[i].fields.title,
             start: date_format(parse_data[i].fields.start_date),
             end: date_format(parse_data[i].fields.end_date),
@@ -65,7 +96,7 @@ function events_build(data) {
 
 // 日付フォーマット1
 function date_format(date) {
-    return test1 = date.replace('T', ' ').replace('Z', '');
+    return date.replace('T', ' ').replace('Z', '');
 }
 
 // 日付フォーマット1

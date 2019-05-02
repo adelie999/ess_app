@@ -47,7 +47,11 @@
                 <span id="ModalBodyDescription"></span>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger">削除</button>
+                <form id="delete_form" name="delete_form" method="POST">
+                    {% csrf_token %}
+                    <button id="delete" class="btn btn-danger">削除</button>
+                    <input id="delete_id" name="delete_id" type="hidden" />
+                </form>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
             </div>
         </div>
