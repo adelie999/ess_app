@@ -12,9 +12,26 @@
     padding-bottom: 30px;
 }
 
-.register_form {
+#studentSide {
+    float: left;
     width: 600px;
 }
+
+#parentSide {
+    float: right;
+    width: 600px;
+    margin-right: 100px;
+    margin-left: 0 auto;
+}
+
+#studentBirthday {
+    width: 400px;
+}
+
+#studentAge,
+#schoolyears {
+    width: 100px;
+} 
 
 .custom-file-input:lang(ja)~.custom-file-label::after {
     content: "参照";

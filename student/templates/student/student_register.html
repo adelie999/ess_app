@@ -19,87 +19,65 @@
 
 <!-- sub-content -->
 {% block content %}
-<div class="register_form">
-    <form>
-        <div class="form-group">
-            <label for="file">ファイル選択</label>
-            <div id="file" class="input-group">
-                <div class="custom-file">
-                    <input type="file" id="cutomfile" class="custom-file-input" name="cutomfile[]" lang="ja" />
-                    <label class="custom-file-label" for="customfile">ファイル選択...</label>
-                </div>
-                <div class="input-group-append">
-                    <button type="button" class="btn btn-outline-secondary reset">取消</button>
+<div>
+    <form id="register_form" name="register_form" method="POST">
+        {% csrf_token %}
+        <div id="studentSide">
+            <h4>生徒について</h4>
+            <div class="form-group">
+                <label for="studentName">氏名</label>
+                <input type="input" name="studentName" class="form-control" id="studentName" placeholder="佐藤　太郎">
+            </div>
+            <div class="form-group">
+                <label for="studentBirthday">生年月日</label>
+                <div class="form-inline">
+                    <input type="date" name="studentBirthday" class="form-control" id="studentBirthday">
+                    <input type="input" name="studentAge" class="form-control" id="studentAge" placeholder="年齢">
+                    <input type="input" name="schoolyears" class="form-control" id="schoolyears" placeholder="学年">
                 </div>
             </div>
+            <div class="form-group">
+                <label for="studentAddress">住所</label>
+                <input type="input" name="studentAddress" class="form-control" id="studentAddress">
+            </div>
+            <div class="form-group">
+                <label for="file">写真</label>
+                <div id="file" class="input-group">
+                    <div class="custom-file">
+                        <input type="file" id="cutomfile" class="custom-file-input" name="cutomfile" lang="ja" accept=".png" />
+                        <label class="custom-file-label" for="customfile">ファイル選択...</label>
+                    </div>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-outline-secondary reset">取消</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="remarks">備考</label>
+                <textarea name="remarks" class="form-control" id="remarks" rows="3"></textarea>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="studentName">氏名</label>
-            <input type="input" class="form-control" id="studentName" placeholder="佐藤　太郎">
-        </div>
-        <div class="form-group">
-            <label for="parentEmail">メールアドレス</label>
-            <input type="email" class="form-control" id="parentEmail" placeholder="name@example.com">
-        </div>
-        <div class="form-group">
-            <label for="scoolYears">学年</label>
-            <select class="form-control" id="scoolYears">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="remarks">備考</label>
-            <textarea class="form-control" id="remarks" rows="3"></textarea>
+        <div id="parentSide">
+            <h4>保護者について</h4>
+            <div class="form-group">
+                <label for="parentEmail">メールアドレス</label>
+                <input type="email" name="parentEmail" class="form-control" id="parentEmail" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+                <label for="parentPhone">電話番号</label>
+                <input type="tel" namae="parentPhone" class="form-control" id="parentPhone" placeholder="000-0000-0000">
+            </div>
+            <div class="form-group">
+                <label for="payment">月謝</label>
+                <input type="input" name="payment" class="form-control" id="payment" placeholder="3000">
+            </div>
+            <button type="button" id="register" class="btn btn-primary">登録</button>
+            <button type="button" class="btn btn-secondary">修正</button>
         </div>
     </form>
 </div>
 
-<script>
-    $('.custom-file-input').on('change', handleFileSelect);
+<!-- js -->
+<script type="text/javascript" src="{% static 'js/register.js' %}"></script>
 
-    function handleFileSelect(evt) {
-        $('#preview').remove(); // 繰り返し実行時の処理
-        $(this).parents('.input-group').after('<div id="preview"></div>');
-        var files = evt.target.files;
-
-        for (var i = 0, f; f = files[i]; i++) {
-
-            var reader = new FileReader();
-
-            reader.onload = (function (theFile) {
-                return function (e) {
-                    if (theFile.type.match('image.*')) {
-                        var $html = [
-                            '<div class="d-inline-block mr-1 mt-1"><img class="img-thumbnail" src="', e
-                            .target.result, '" title="', escape(theFile.name),
-                            '" style="height:100px;" /><div class="small text-muted text-center">',
-                            escape(theFile.name), '</div></div>'
-                        ].join(''); // 画像では画像のプレビューとファイル名の表示
-                    } else {
-                        var $html = ['<div class="d-inline-block mr-1"><span class="small">', escape(theFile
-                            .name), '</span></div>'].join(''); //画像以外はファイル名のみの表示
-                    }
-
-                    $('#preview').append($html);
-                };
-            })(f);
-
-            reader.readAsDataURL(f);
-        }
-
-        $(this).next('.custom-file-label').html(+files.length + '個のファイルを選択しました');
-    }
-
-    //ファイルの取消
-    $('.reset').click(function () {
-        $(this).parent().prev().children('.custom-file-label').html('ファイル選択...');
-        $('.custom-file-input').val('');
-        $('#preview').remove('');
-    })
-</script>
 {% endblock %}

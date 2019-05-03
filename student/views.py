@@ -1,6 +1,7 @@
 """ this student view.py """
 import datetime
 import pytz
+import shutil
 from django.http.response import JsonResponse
 from django.shortcuts import render, redirect
 from django.core import serializers
@@ -16,6 +17,15 @@ def home(request):
 def student_register(request):
     """ this student_register view """
     return render(request, 'student/student_register.html')
+
+
+def form_register(request):
+    """ this student_register view """
+    print(request.POST)
+    # shutil.copy(request.POST.get('cutomfile'), '../static/photo/1.png')
+    Students.objects.create(name='test1', birthday='1234', age='6', school_year='1', address='tokyo',
+     payment='3000', parent_name='parent', parent_email='testse', parent_phone='090909')
+    return redirect('student:student_register')
 
 
 def student_list(request):

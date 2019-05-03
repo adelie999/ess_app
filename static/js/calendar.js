@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fm.select_day,val = $(selectDay).val();
         fm.method = "post";
         fm.target = "_self";
-        fm.action = "ajax/schedule/register";
+        fm.action = "schedule/register";
         fm.submit();
     });
 
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fm.delete_id.value = $(delete_id).val();
         fm.method = "post";
         fm.target = "_self";
-        fm.action = "ajax/schedule/delete";
+        fm.action = "schedule/delete";
         fm.submit();
     });
 });
