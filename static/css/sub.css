@@ -10,3 +10,20 @@
 .col-md-2 {
     padding-bottom: 30px;
 }
+
+.register_form {
+    width: 600px;
+}
+
+.custom-file-input:lang(ja)~.custom-file-label::after {
+    content: "参照";
+}
+
+.custom-file {
+    max-width: 50rem;
+    overflow: hidden;
+}
+
+.custom-file-label {
+    white-space: nowrap;
+}

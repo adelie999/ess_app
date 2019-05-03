@@ -7,7 +7,8 @@ app_name = 'student'
 urlpatterns = [
     path('', views.home, name='home'),
     path('student/schedule', views.schedule, name='schedule'),
-    path('student/list', views.student_list, name='student_list'),
+    path('student/student_register', views.student_register, name='student_register'),
+    path('student/student_list', views.student_list, name='student_list'),
     path('student/ajax/schedule', views.ajax_schedule, name="ajax_schedule"),
     path('student/ajax/schedule/register',
          views.schedule_register, name="schedule_register"),
