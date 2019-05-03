@@ -1,6 +1,7 @@
 .card-img-top {
     width: 50%;
     height: auto;
+    overflow: hidden;
 }
 
 .card-body {

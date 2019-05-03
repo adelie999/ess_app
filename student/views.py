@@ -20,7 +20,7 @@ def student_register(request):
 
 def student_list(request):
     """ this student_list view """
-    context = {'all_data': Students.objects.order_by('student_school_year')}
+    context = {'all_data': Students.objects.order_by('school_year')}
     return render(request, 'student/student_list.html', context)
 
 
