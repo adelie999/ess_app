@@ -1,0 +1,8 @@
+.input-group-text {
+    width: 90px;
+}
+
+#inputStart,
+#inputEnd {
+    height: 38px;
+}

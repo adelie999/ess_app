@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 locale: 'ja',
                 events: events,
                 dateClick: function (info) {
-                    alert('Date: ' + info.dateStr);
+                    $(ModalCenter2).modal();
                 },
                 eventClick: function (info) {
                     $(delete_id).val(info.event.id);
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     $(ModalBodyStart).html(date_format2(info.event.start));
                     $(ModalBodyEnd).html(date_format2(info.event.end));
                     $(ModalBodyDescription).html(info.event.extendedProps.description);
-                    $(ModalCenter).modal();
+                    $(ModalCenter1).modal();
                 }
             });
 
@@ -46,34 +46,15 @@ document.addEventListener('DOMContentLoaded', function () {
             calendar_list.render();
         });
 
-    
-$('#delete').click(function () {
-    console.log('test')
-      //formオブジェクトを取得する
+
+    $('#delete').click(function () {
         var fm = document.getElementById("delete_form");
-        fm.delete_id.value = $(delete_id).val(); 
-        fm.method = "post"; 
-        fm.target = "_self"; 
-        fm.action = "ajax/schedule/delete";  // 例）"/php/sample.php"に指定する
+        fm.delete_id.value = $(delete_id).val();
+        fm.method = "post";
+        fm.target = "_self";
+        fm.action = "ajax/schedule/delete";
         fm.submit();
-    // $.ajax({
-    //     url: 'student/ajax/schedule/delete',
-    //     type: 'POST',
-    //     data: {'data':$(delete_id).val()},
-    //     contentType: "application/json",
-    //     beforeSend: function (xhr, settings) {
-    //         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-    //             xhr.setRequestHeader("X-CSRFToken", getCookie("csrftoken"));
-    //         }
-    //     },
-    //     success: function () {
-    //         console.log('OK')
-    //     },
-    //     error: function (xhr, status, error) {
-    //         alert(status + "\n" + "Status: " + xhr.status + "\n" + error);
-    //     }
-    // })
-});
+    });
 });
 
 

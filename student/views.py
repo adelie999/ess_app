@@ -3,6 +3,7 @@ from django.http.response import JsonResponse
 from django.shortcuts import render, redirect
 from django.core import serializers
 from .models import Students, Schedule
+from .forms import TimeForm
 
 
 def home(request):
@@ -18,16 +19,17 @@ def student_list(request):
 
 def schedule(request):
     """ this schedule view """
-    return render(request, 'student/schedule.html')
+    context = {"form": TimeForm(), "form2": TimeForm()}
+    return render(request, 'student/schedule.html', context)
 
 
 def ajax_schedule(request):
     """ this ajax action """
-    temp = serializers.serialize("json", Schedule.objects.all())
-    return JsonResponse(temp, safe=False)
+    data = serializers.serialize("json", Schedule.objects.all())
+    return JsonResponse(data, safe=False)
 
 
-def ajax_schedule_delete(request):
+def schedule_delete(request):
     """ this ajax action """
-    print(request.POST.get('delete_id'))
+    Schedule.objects.filter(id=request.POST.get('delete_id')).delete()
     return redirect('student:schedule')

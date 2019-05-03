@@ -7,11 +7,13 @@
 
 <!-- css -->
 {% block style %}
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
 <link href="{% static 'css/fullcalendar/core.min.css' %}" rel="stylesheet">
 <link href="{% static 'css/fullcalendar/daygrid.min.css' %}" rel="stylesheet">
 <link href="{% static 'css/fullcalendar/timegrid.min.css' %}" rel="stylesheet">
 <link href="{% static 'css/fullcalendar/list.min.css' %}" rel="stylesheet">
 <link href="{% static 'css/calendar.css' %}" rel="stylesheet">
+<link href="{% static 'css/schedule.css' %}" rel="stylesheet">
 {% endblock %}
 
 <!-- js -->
@@ -24,6 +26,11 @@
 <script type="text/javascript" src="{% static 'js/fullcalendar/locales-all.min.js' %}"></script>
 {% endblock %}
 
+<!-- form -->
+{% block form %}
+{{ form.media }}
+{% endblock %}
+
 <!-- breadcrumb -->
 {% block breadcrumb %}
 <li class="breadcrumb-item"><a href="/">ホーム</a></li>
@@ -33,13 +40,13 @@
 <!-- sub-content -->
 {% block content %}
 
-<!-- Modal -->
-<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
+<!-- Modal1 -->
+<div class="modal fade" id="ModalCenter1" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="ModalTitle" class="modal-title"></h5>
+                <h5 id="ModalTitle1" class="modal-title"></h5>
             </div>
             <div class="modal-body">
                 開始：<span id="ModalBodyStart"></span>　終了：<span id="ModalBodyEnd"></span>
@@ -58,10 +65,54 @@
     </div>
 </div>
 
+<!-- Modal2 -->
+<div class="modal fade" id="ModalCenter2" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="ModalTitle2" class="modal-title">予定登録</h5>
+            </div>
+            <form id="register_form" name="register_form" method="POST">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputTitle">タイトル</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="タイトル" aria-label="title"
+                            aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputStart">開始</span>
+                        </div>
+                        {{ form.start_time_field }}
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputEnd">終了</span>
+                        </div>
+                        {{ form.end_time_field }}
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">詳細</span>
+                        </div>
+                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="register" class="btn btn-primary">登録</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!-- fullcalendar -->
 <div id="calendar" class="calendar"></div>
 <div id="calendar-list" class="calendar"></div>
 
-<!-- js -->
 <script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>
+
 {% endblock %}
