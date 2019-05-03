@@ -19,11 +19,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 locale: 'ja',
                 events: events,
                 dateClick: function (info) {
+                    $(selectDay).val(info.dateStr)
                     $(ModalCenter2).modal();
                 },
                 eventClick: function (info) {
                     $(delete_id).val(info.event.id);
-                    $(ModalTitle).html(info.event.title);
+                    $(ModalTitle1).html(info.event.title);
                     $(ModalBodyStart).html(date_format2(info.event.start));
                     $(ModalBodyEnd).html(date_format2(info.event.end));
                     $(ModalBodyDescription).html(info.event.extendedProps.description);
@@ -46,7 +47,19 @@ document.addEventListener('DOMContentLoaded', function () {
             calendar_list.render();
         });
 
+    // 予定登録
+    $('#register').click(function () {
+        var fm = document.getElementById("register_form");
+        fm.registerTitle.val = $(registerTitle).val();
+        fm.registerDescription.val = $(registerDescription).val();
+        fm.select_day,val = $(selectDay).val();
+        fm.method = "post";
+        fm.target = "_self";
+        fm.action = "ajax/schedule/register";
+        fm.submit();
+    });
 
+    // 予定削除 
     $('#delete').click(function () {
         var fm = document.getElementById("delete_form");
         fm.delete_id.value = $(delete_id).val();
@@ -80,15 +93,16 @@ function date_format(date) {
     return date.replace('T', ' ').replace('Z', '');
 }
 
-// 日付フォーマット1
+// 日付フォーマット2
 function date_format2(date) {
+    console.log(date)
     var f_date = new Date(date);
     var y = f_date.getFullYear();
     var m = f_date.getMonth() + 1;
     var d = f_date.getDate();
     var h = f_date.getHours();
-    var mm = f_date.getMinutes();
-    return y + '/' + m + '/' + d + ' ' + h + ':' + mm
+    var mm = ('0' + f_date.getMinutes()).slice(-2);
+    return y + '/' + m + '/' + d + ' ' + h + ':' + mm;
 }
 
 // db参照

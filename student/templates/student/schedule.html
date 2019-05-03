@@ -73,15 +73,15 @@
             <div class="modal-header">
                 <h5 id="ModalTitle2" class="modal-title">予定登録</h5>
             </div>
-            <form id="register_form" name="register_form" method="POST">
+            <form id="register_form" name="register_form" method="POST" autocomplete="off">
                 {% csrf_token %}
                 <div class="modal-body">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputTitle">タイトル</span>
                         </div>
-                        <input type="text" class="form-control" placeholder="タイトル" aria-label="title"
-                            aria-describedby="basic-addon1">
+                        <input id="registerTitle" name="registerTitle" type="text" class="form-control"
+                            placeholder="タイトル" aria-label="title" required="True">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -93,11 +93,13 @@
                         </div>
                         {{ form.end_time_field }}
                     </div>
+                    <input id="selectDay" name="select_day" type="hidden" />
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">詳細</span>
                         </div>
-                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                        <textarea id="registerDescription" name="registerDescription" required="True"
+                            class="form-control"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -113,6 +115,7 @@
 <div id="calendar" class="calendar"></div>
 <div id="calendar-list" class="calendar"></div>
 
+<!-- js -->
 <script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>
 
 {% endblock %}

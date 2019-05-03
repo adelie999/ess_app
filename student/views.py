@@ -1,4 +1,7 @@
 """ this student view.py """
+import pytz
+import datetime
+from django.utils import timezone
 from django.http.response import JsonResponse
 from django.shortcuts import render, redirect
 from django.core import serializers
@@ -19,7 +22,7 @@ def student_list(request):
 
 def schedule(request):
     """ this schedule view """
-    context = {"form": TimeForm(), "form2": TimeForm()}
+    context = {"form": TimeForm()}
     return render(request, 'student/schedule.html', context)
 
 
@@ -29,7 +32,26 @@ def ajax_schedule(request):
     return JsonResponse(data, safe=False)
 
 
+def schedule_register(request):
+    """ this register action """
+    ins_title = request.POST.get('registerTitle')
+    start_jst_datetime = request.POST.get(
+        'select_day') + ' ' + request.POST.get('start_time_field')
+    start_utc_datetime = datetime.datetime.strptime(
+        start_jst_datetime, '%Y-%m-%d %H:%M')
+    ins_start_day = pytz.utc.localize(start_utc_datetime)
+    end_jst_datetime = request.POST.get(
+        'select_day') + ' ' + request.POST.get('end_time_field')
+    end_utc_datetime = datetime.datetime.strptime(
+        end_jst_datetime, '%Y-%m-%d %H:%M')
+    ins_end_day = pytz.utc.localize(end_utc_datetime)
+    ins_description = request.POST.get('registerDescription')
+    Schedule.objects.create(title=ins_title, start_date=ins_start_day, end_date=ins_end_day,
+                            description=ins_description)
+    return redirect('student:schedule')
+
+
 def schedule_delete(request):
-    """ this ajax action """
+    """ this delete action """
     Schedule.objects.filter(id=request.POST.get('delete_id')).delete()
     return redirect('student:schedule')
