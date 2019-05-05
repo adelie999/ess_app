@@ -22,14 +22,15 @@ def student_register(request):
 def form_register(request):
     """ this student_register view """
     print(request.POST)
+    print(request.FILES)
     form = PhotoForm(request.POST, request.FILES)
     if form.is_valid():
-        print('clean')
-    photo = Students()
-    photo.image = form.cleaned_data['image']
-    photo.save()
-    Students.objects.create(name='test1', birthday='1234', age='6', school_year='1', address='tokyo',
-                            payment='3000', parent_name='parent', parent_email='testse', parent_phone='090909')
+        photo = Students()
+        photo.image = form.cleaned_data['image']
+        print(photo.image)
+        photo.save()
+    # Students.objects.create(name='test1', birthday='1234', age='6', school_year='1', address='tokyo',
+    #                         payment='3000', parent_name='parent', parent_email='testse', parent_phone='090909')
     return redirect('student:student_register')
 
 

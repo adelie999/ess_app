@@ -20,7 +20,7 @@
 <!-- sub-content -->
 {% block content %}
 <div>
-    <form id="register_form" name="register_form" method="POST" enctype="multipart/form-data">
+    <form action="{% url 'student:form_register' %}" id="register_form" name="register_form" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div id="studentSide">
             <h4>生徒について</h4>
@@ -41,8 +41,8 @@
                 <input type="input" name="studentAddress" class="form-control" id="studentAddress">
             </div>
             <div class="form-group">
-                <label for="file">写真</label>
-                {{ form.image }}
+                <label for="image">写真</label><br />
+                {{ form }}
             </div>
             <div class="form-group">
                 <label for="remarks">備考</label>
@@ -57,19 +57,15 @@
             </div>
             <div class="form-group">
                 <label for="parentPhone">電話番号</label>
-                <input type="tel" namae="parentPhone" class="form-control" id="parentPhone" placeholder="000-0000-0000">
+                <input type="input" name="parentPhone" class="form-control" id="parentPhone" placeholder="000-0000-0000">
             </div>
             <div class="form-group">
                 <label for="payment">月謝</label>
                 <input type="input" name="payment" class="form-control" id="payment" placeholder="3000">
             </div>
-            <button type="button" id="register" class="btn btn-primary">登録</button>
+            <button type="submit" id="register" class="btn btn-primary">登録</button>
             <button type="button" class="btn btn-secondary">修正</button>
         </div>
     </form>
 </div>
-
-<!-- js -->
-<script type="text/javascript" src="{% static 'js/register.js' %}"></script>
-
 {% endblock %}

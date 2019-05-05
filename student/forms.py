@@ -4,6 +4,7 @@ from tempus_dominus.widgets import TimePicker
 
 
 class PhotoForm(forms.Form):
+    """ photo """
     image = forms.ImageField()
 
 
