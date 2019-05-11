@@ -24,7 +24,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
         integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous">
     </script>
-    {% block js %}{% endblock %}
 
     <!-- form -->
     {% block form %}{% endblock %}
@@ -65,17 +64,16 @@
                 </li>
             </ul>
             <!-- social link -->
-            <a class="navbar-brand" href="#">
-                <img src="{% static 'icon/twitter.png' %}" width="30" height="30"
-                    alt="twitter">
+            <a id="twitter" class="navbar-brand" href>
+                <img src="{% static 'icon/twitter.png' %}" width="30" height="30" alt="twitter">
             </a>
-            <a class="navbar-brand" href="#">
+            <a id="facebook" class="navbar-brand" href>
                 <img src="{% static 'icon/facebook.png' %}" width="30" height="30" alt="facebook">
             </a>
-            <a class="navbar-brand" href="#">
+            <a id="line" class="navbar-brand" href>
                 <img src="{% static 'icon/line.png' %}" width="30" height="30" alt="line">
             </a>
-            <a class="navbar-brand" href="#">
+            <a id="instagram" class="navbar-brand" href>
                 <img src="{% static 'icon/instagram.png' %}" width="30" height="30" alt="instagram">
             </a>
             <span class="navbar-text text-white">ようこそ　管理者　さん</span>
@@ -99,6 +97,8 @@
             </div>
         </div>
     </div>
+    <!-- js -->
+    <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
 </body>
 
 

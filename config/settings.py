@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'home.apps.HomeConfig',
     'student.apps.StudentConfig',
     'schedule.apps.ScheduleConfig',
     'tempus_dominus',

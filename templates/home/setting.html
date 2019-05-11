@@ -18,5 +18,18 @@
 
 <!-- sub-content -->
 {% block content %}
-<h1>testets</h1>
+<div class="row">
+    <div class="col-md-6">
+        <form action="{% url 'home:setting' %}" id="changeForm" name="change_form" method="POST">
+            {% csrf_token %}
+            {% for list in object_list %}
+            <div class="form-group">
+                <label>{{ list.name }}</label>
+                <input type="input" name="{{ list.id }}" class="form-control" value="{{ list.url }}">
+            </div>
+            {% endfor %}
+            <button type="submit" id="register" class="btn btn-primary float-right">変更</button>
+        </form>
+    </div>
+</div>
 {%endblock%}
