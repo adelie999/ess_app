@@ -21,6 +21,6 @@ admin.site.site_header = '開発者専用ページ'
 admin.site.index_title = '管理画面'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('student.urls')),
+    path('', include('home.urls')),
+    path('/student/', include('student.urls')),
 ]

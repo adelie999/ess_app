@@ -16,7 +16,7 @@ urlpatterns = [
          views.schedule_register, name="schedule_register"),
     path('student/schedule/delete',
          views.schedule_delete, name="schedule_delete"),
-     path('student/sell', Account.as_view())
+    path('student/sell', Account.as_view())
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
