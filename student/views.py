@@ -7,7 +7,7 @@ from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import CreateView
 from django.core import serializers
 from .models import Students, Schedules
-from .forms import TimeForm, StudentsForm
+from .forms import StudentsForm
 
 
 class StudentRegister(CreateView):  # pylint: disable=too-many-ancestors

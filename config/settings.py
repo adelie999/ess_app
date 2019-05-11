@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'student.apps.StudentConfig',
+    'schedule.apps.ScheduleConfig',
     'tempus_dominus',
     'django.contrib.admin',
     'django.contrib.auth',
