@@ -9,10 +9,13 @@ MySQL  8.0.15
 
 ### Description
 1.schedule<br>
-スケジュールの確認、登録をおこなえる。<br>
+- 登録
+- 表示
+- 削除
 
-2.student_infomation<br>
-生徒の確認、登録をおこなえる。<br>
+2.student<br>
+- 登録
+- 表示
 
-3.accounting<br>
-売上やらなんやら<br>
+3.account<br>
+- 確認
