@@ -63,6 +63,9 @@ class ScheduleShow(TemplateView):
         data = serializers.serialize("json", Schedules.objects.all())
         return JsonResponse(data, safe=False)
 
+class Account(TemplateView):
+    template_name = 'student/sell.html'
+
 
 def schedule_register(request):
     """ this register action """
