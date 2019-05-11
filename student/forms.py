@@ -3,8 +3,8 @@ from django import forms
 from tempus_dominus.widgets import TimePicker
 
 
-class PhotoForm(forms.Form):
-    """ photo """
+class StudentsForm(forms.Form):
+    """ register """
     image = forms.ImageField()
 
 

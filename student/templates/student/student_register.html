@@ -20,7 +20,7 @@
 <!-- sub-content -->
 {% block content %}
 <div>
-    <form action="{% url 'student:form_register' %}" id="register_form" name="register_form" method="POST" enctype="multipart/form-data">
+    <form action="{% url 'student:student_register' %}" id="register_form" name="register_form" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div id="studentSide">
             <h4>生徒について</h4>
@@ -33,7 +33,7 @@
                 <div class="form-inline">
                     <input type="date" name="studentBirthday" class="form-control" id="studentBirthday">
                     <input type="input" name="studentAge" class="form-control" id="studentAge" placeholder="年齢">
-                    <input type="input" name="schoolyears" class="form-control" id="schoolyears" placeholder="学年">
+                    <input type="input" name="schoolYear" class="form-control" id="schoolYear" placeholder="学年">
                 </div>
             </div>
             <div class="form-group">

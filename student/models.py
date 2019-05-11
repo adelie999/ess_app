@@ -15,11 +15,14 @@ class Students(models.Model):
     school_year = models.IntegerField(
         '学年', validators=[MinValueValidator(1), MaxValueValidator(6)], default=1)
     address = models.CharField('住所', max_length=100, default='東京都')
-    photo_path = models.ImageField('写真のパス', upload_to='images/', default='images/no-img.png')
+    photo_path = models.ImageField(
+        '写真のパス', upload_to='images/')
     payment = models.IntegerField('月謝', default=0)
     parent_name = models.CharField('保護者氏名', max_length=30)
-    parent_email = models.EmailField('メールアドレス', max_length=50, default="example@aaa.com")
-    parent_phone = models.CharField('電話番号', max_length=11, default='00000000000')
+    parent_email = models.EmailField(
+        'メールアドレス', max_length=50, default="example@aaa.com")
+    parent_phone = models.CharField(
+        '電話番号', max_length=11, default='00000000000')
     created_at = models.DateTimeField('作成日')
     updated_at = models.DateTimeField('更新日')
 

@@ -108,7 +108,7 @@ function date_format2(date) {
 // db参照
 function ajax_post() {
     return $.ajax({
-        url: 'ajax/schedule',
+        url: location.href,
         type: 'POST',
         dataType: 'json',
         contentType: "application/json",
