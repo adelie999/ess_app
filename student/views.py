@@ -10,11 +10,6 @@ from .models import Students, Schedules
 from .forms import TimeForm, StudentsForm
 
 
-class Home(TemplateView):
-    """ ホームview """
-    template_name = 'student/home.html'
-
-
 class StudentRegister(CreateView):  # pylint: disable=too-many-ancestors
     """ 生徒登録view """
     model = Students
@@ -62,6 +57,7 @@ class ScheduleShow(TemplateView):
         """ post """
         data = serializers.serialize("json", Schedules.objects.all())
         return JsonResponse(data, safe=False)
+
 
 class Account(TemplateView):
     template_name = 'student/sell.html'

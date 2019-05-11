@@ -2,12 +2,11 @@
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import Home, StudentRegister, StudentShow, ScheduleShow, Account
+from .views import StudentRegister, StudentShow, ScheduleShow, Account
 from . import views
 
 app_name = 'student'
 urlpatterns = [
-    path('', Home.as_view()),
     path('student/student_register',
          StudentRegister.as_view(), name="student_register"),
     path('student/student_list', StudentShow.as_view()),
