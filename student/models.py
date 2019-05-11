@@ -1,4 +1,4 @@
-""" this student models.py """
+""" student models """
 import pytz
 from django.db import models
 from django.utils import timezone
@@ -6,7 +6,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Students(models.Model):
-    """ this class students table """
+    """ students table """
     db_table = 'students'
     name = models.CharField('氏名', max_length=30)
     birthday = models.CharField('生年月日', max_length=8)
@@ -30,26 +30,7 @@ class Students(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        """ this override save """
-        jst_datetime = timezone.localtime().now()
-        if not self.id:
-            self.created_at = pytz.utc.localize(jst_datetime)
-        self.updated_at = pytz.utc.localize(jst_datetime)
-        return super().save(*args, **kwargs)
-
-
-class Schedules(models.Model):
-    """ this class schedule table """
-    db_table = 'schedule'
-    title = models.CharField('タイトル', max_length=50)
-    start_date = models.DateTimeField('開始日')
-    end_date = models.DateTimeField('終了日')
-    description = models.TextField('予定の内容')
-    created_at = models.DateTimeField('作成日')
-    updated_at = models.DateTimeField('更新日')
-
-    def save(self, *args, **kwargs):
-        """ this override save """
+        """ save method override """
         jst_datetime = timezone.localtime().now()
         if not self.id:
             self.created_at = pytz.utc.localize(jst_datetime)

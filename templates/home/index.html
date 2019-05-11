@@ -7,7 +7,7 @@
 
 <!-- css -->
 {% block style %}
-<link href="{% static 'css/sub.css' %}" rel="stylesheet">
+<link href="{% static 'css/home.css' %}" rel="stylesheet">
 {% endblock %}
 
 <!-- breadcrumb -->
@@ -35,7 +35,7 @@
             <div class="card h-100">
                 <h6 class="card-header">生徒登録</h6>
                 <div class="card-body">
-                    <a href="/student/student_register"><img class="card-img-top" src="{% static 'image/for_student.png' %}"
+                    <a href="/student/register"><img class="card-img-top" src="{% static 'image/for_student.png' %}"
                             alt="生徒一覧"></a>
                 </div>
             </div>
@@ -45,7 +45,7 @@
             <div class="card h-100">
                 <h6 class="card-header">生徒一覧</h6>
                 <div class="card-body">
-                    <a href="/student/student_list"><img class="card-img-top" src="{% static 'image/for_student_list.png' %}"
+                    <a href="/student/list"><img class="card-img-top" src="{% static 'image/for_student_list.png' %}"
                             alt="生徒詳細"></a>
                 </div>
             </div>
@@ -62,7 +62,7 @@
             <div class="card h-100">
                 <h6 class="card-header">売上</h6>
                 <div class="card-body">
-                    <a href="/student/sell"><img class="card-img-top" src="{% static 'image/for_money.png' %}" alt="売上"></a>
+                    <a href="/account/sell"><img class="card-img-top" src="{% static 'image/for_money.png' %}" alt="売上"></a>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
             <div class="card h-100">
                 <h6 class="card-header">請求</h6>
                 <div class="card-body">
-                    <a href="#"><img class="card-img-top" src="{% static 'image/for_money.png' %}" alt="請求"></a>
+                    <a href="/account/claim"><img class="card-img-top" src="{% static 'image/for_money.png' %}" alt="請求"></a>
                 </div>
             </div>
         </div>
@@ -80,7 +80,7 @@
             <div class="card h-100">
                 <h6 class="card-header">設定</h6>
                 <div class="card-body">
-                    <a href="#"><img class="card-img-top" src="{% static 'image/for_config.png' %}" alt="経理処理"></a>
+                    <a href="/setting"><img class="card-img-top" src="{% static 'image/for_config.png' %}" alt="経理処理"></a>
                 </div>
             </div>
         </div>

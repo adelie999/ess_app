@@ -13,12 +13,12 @@ class Schedule(TemplateView):
     """ Schedule class """
 
     def get(self, request, *args, **kwargs):
-        """ get """
+        """ get method """
         context = {"form": TimeForm()}
         return render(request, 'schedule/index.html', context)
 
     def post(self, request, *args, **kwargs):
-        """ post """
+        """ post method """
         data = serializers.serialize("json", Schedules.objects.all())
         return JsonResponse(data, safe=False)
 

@@ -1,7 +1,7 @@
-""" this student forms.py """
+""" student forms """
 from django import forms
 
 
 class StudentsForm(forms.Form):
-    """ register """
+    """ StudentsForm class """
     image = forms.ImageField()
