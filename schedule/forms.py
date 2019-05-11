@@ -1,10 +1,10 @@
-""" this student forms.py """
+""" schedule forms """
 from django import forms
 from tempus_dominus.widgets import TimePicker
 
 
 class TimeForm(forms.Form):
-    """ this TimeForm """
+    """ TimeForm class """
     start_time_field = forms.TimeField(
         label='',
         widget=TimePicker(

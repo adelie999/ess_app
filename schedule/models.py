@@ -5,8 +5,7 @@ from django.utils import timezone
 
 
 class Schedules(models.Model):
-    """ this class schedule table """
-    db_table = 'schedule'
+    """ schedules table """
     title = models.CharField('タイトル', max_length=50)
     start_date = models.DateTimeField('開始日')
     end_date = models.DateTimeField('終了日')
@@ -15,7 +14,7 @@ class Schedules(models.Model):
     updated_at = models.DateTimeField('更新日')
 
     def save(self, *args, **kwargs):
-        """ this override save """
+        """ save method override """
         jst_datetime = timezone.localtime().now()
         if not self.id:
             self.created_at = pytz.utc.localize(jst_datetime)
