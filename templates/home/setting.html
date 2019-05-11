@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- title -->
+{% block title %}設定{%endblock%}
+
+<!-- css -->
+{% block style %}
+<link href="{% static 'css/home.css' %}" rel="stylesheet">
+{% endblock %}
+
+<!-- breadcrumb -->
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="/">ホーム</a></li>
+<li class="breadcrumb-item active" aria-current="page">設定</li>
+{% endblock %}
+
+<!-- sub-content -->
+{% block content %}
+<h1>testets</h1>
+{%endblock%}
