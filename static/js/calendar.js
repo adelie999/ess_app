@@ -20,15 +20,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 events: events,
                 dateClick: function (info) {
                     $(selectDay).val(info.dateStr)
-                    $(ModalCenter2).modal();
+                    $(ModalInput).modal();
                 },
                 eventClick: function (info) {
-                    $(delete_id).val(info.event.id);
-                    $(ModalTitle1).html(info.event.title);
-                    $(ModalBodyStart).html(date_format2(info.event.start));
-                    $(ModalBodyEnd).html(date_format2(info.event.end));
-                    $(ModalBodyDescription).html(info.event.extendedProps.description);
-                    $(ModalCenter1).modal();
+                    $(deleteId).val(info.event.id);
+                    $(ModalOutputTitle).html(info.event.title);
+                    $(ModalOutputBodyStart).html(date_format2(info.event.start));
+                    $(ModalOutputBodyEnd).html(date_format2(info.event.end));
+                    $(ModalOutputBodyDescription).html(info.event.extendedProps.description);
+                    $(ModalOutput).modal();
                 }
             });
 
@@ -47,27 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
             calendar_list.render();
         });
 
-    // 予定登録
-    $('#register').click(function () {
-        var fm = document.getElementById("register_form");
-        fm.registerTitle.val = $(registerTitle).val();
-        fm.registerDescription.val = $(registerDescription).val();
-        fm.select_day,val = $(selectDay).val();
-        fm.method = "post";
-        fm.target = "_self";
-        fm.action = "register";
-        fm.submit();
-    });
-
-    // 予定削除 
-    $('#delete').click(function () {
-        var fm = document.getElementById("delete_form");
-        fm.delete_id.value = $(delete_id).val();
-        fm.method = "post";
-        fm.target = "_self";
-        fm.action = "delete";
-        fm.submit();
-    });
 });
 
 
@@ -95,7 +74,6 @@ function date_format(date) {
 
 // 日付フォーマット2
 function date_format2(date) {
-    console.log(date)
     var f_date = new Date(date);
     var y = f_date.getFullYear();
     var m = f_date.getMonth() + 1;

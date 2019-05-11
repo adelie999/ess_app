@@ -25,17 +25,10 @@ class Schedule(TemplateView):
 
 def register(request):
     """ register action """
-    ins_title = request.POST.get('registerTitle')
-    start_jst_datetime = request.POST.get(
-        'select_day') + ' ' + request.POST.get('start_time_field')
-    start_utc_datetime = datetime.datetime.strptime(
-        start_jst_datetime, '%Y-%m-%d %H:%M')
-    ins_start_day = pytz.utc.localize(start_utc_datetime)
-    end_jst_datetime = request.POST.get(
-        'select_day') + ' ' + request.POST.get('end_time_field')
-    end_utc_datetime = datetime.datetime.strptime(
-        end_jst_datetime, '%Y-%m-%d %H:%M')
-    ins_end_day = pytz.utc.localize(end_utc_datetime)
+    ins_title = request.POST.get('register_title')
+    select_day = request.POST.get('select_day')
+    ins_start_day = change_jst(select_day + ' ' + request.POST.get('start_time_field'))
+    ins_end_day = change_jst(select_day + ' ' + request.POST.get('end_time_field'))
     ins_description = request.POST.get('registerDescription')
     Schedules.objects.create(title=ins_title, start_date=ins_start_day, end_date=ins_end_day,
                              description=ins_description)
@@ -46,3 +39,9 @@ def delete(request):
     """ delete action """
     Schedules.objects.filter(id=request.POST.get('delete_id')).delete()
     return redirect('schedule:index')
+
+
+def change_jst(utc):
+    """ utc -> jst """
+    format_date = datetime.datetime.strptime(utc, '%Y-%m-%d %H:%M')
+    return pytz.utc.localize(format_date)

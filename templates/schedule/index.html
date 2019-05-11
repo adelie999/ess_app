@@ -12,18 +12,7 @@
 <link href="{% static 'css/fullcalendar/daygrid.min.css' %}" rel="stylesheet">
 <link href="{% static 'css/fullcalendar/timegrid.min.css' %}" rel="stylesheet">
 <link href="{% static 'css/fullcalendar/list.min.css' %}" rel="stylesheet">
-<link href="{% static 'css/calendar.css' %}" rel="stylesheet">
 <link href="{% static 'css/schedule.css' %}" rel="stylesheet">
-{% endblock %}
-
-<!-- js -->
-{% block js %}
-<script type="text/javascript" src="{% static 'js/fullcalendar/core.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/fullcalendar/interaction.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/fullcalendar/daygrid.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/fullcalendar/timegrid.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/fullcalendar/list.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/fullcalendar/locales-all.min.js' %}"></script>
 {% endblock %}
 
 <!-- form -->
@@ -40,24 +29,23 @@
 <!-- sub-content -->
 {% block content %}
 
-<!-- Modal1 -->
-<div class="modal fade" id="ModalCenter1" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
-    aria-hidden="true">
+<!-- modal-output -->
+<div class="modal fade" id="ModalOutput" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="ModalTitle1" class="modal-title"></h5>
+                <h5 id="ModalOutputTitle" class="modal-title"></h5>
             </div>
             <div class="modal-body">
-                開始：<span id="ModalBodyStart"></span>　終了：<span id="ModalBodyEnd"></span>
+                開始：<span id="ModalOutputBodyStart"></span>　終了：<span id="ModalOutputBodyEnd"></span>
                 <hr>
-                <span id="ModalBodyDescription"></span>
+                <span id="ModalOutputBodyDescription"></span>
             </div>
             <div class="modal-footer">
-                <form id="delete_form" name="delete_form" method="POST">
+                <form action="{% url 'schedule:delete' %}" id="deleteForm" name="delete_form" method="POST">
                     {% csrf_token %}
-                    <button id="delete" class="btn btn-danger">削除</button>
-                    <input id="delete_id" name="delete_id" type="hidden" />
+                    <button type="submit" class="btn btn-danger">削除</button>
+                    <input id="deleteId" name="delete_id" type="hidden" />
                 </form>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
             </div>
@@ -65,31 +53,31 @@
     </div>
 </div>
 
-<!-- Modal2 -->
-<div class="modal fade" id="ModalCenter2" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
-    aria-hidden="true">
+<!-- modal-input -->
+<div class="modal fade" id="ModalInput" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="ModalTitle2" class="modal-title">予定登録</h5>
+                <h5 class="modal-title">予定登録</h5>
             </div>
-            <form id="register_form" name="register_form" method="POST" autocomplete="off">
+            <form action="{% url 'schedule:register' %}" id="registerForm" name="register_form" method="POST"
+                autocomplete="off">
                 {% csrf_token %}
                 <div class="modal-body">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputTitle">タイトル</span>
+                            <span class="input-group-text">タイトル</span>
                         </div>
-                        <input id="registerTitle" name="registerTitle" type="text" class="form-control"
-                            placeholder="タイトル" aria-label="title" required="True">
+                        <input id="registerTitle" name="register_title" type="text" class="form-control"
+                            placeholder="タイトル" required="True">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputStart">開始</span>
+                            <span class="input-group-text">開始</span>
                         </div>
                         {{ form.start_time_field }}
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputEnd">終了</span>
+                            <span class="input-group-text">終了</span>
                         </div>
                         {{ form.end_time_field }}
                     </div>
@@ -103,7 +91,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button id="register" class="btn btn-primary">登録</button>
+                    <button type="submit" class="btn btn-primary">登録</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
                 </div>
             </form>
@@ -116,6 +104,12 @@
 <div id="calendar-list" class="calendar"></div>
 
 <!-- js -->
+<script type="text/javascript" src="{% static 'js/fullcalendar/core.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/fullcalendar/interaction.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/fullcalendar/daygrid.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/fullcalendar/timegrid.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/fullcalendar/list.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/fullcalendar/locales-all.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>
 
 {% endblock %}
