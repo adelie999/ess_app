@@ -25,4 +25,6 @@ urlpatterns = [
     path('student/', include('student.urls')),
     # schedule url
     path('schedule/', include('schedule.urls')),
+    # accouting url
+    path('accounting/', include('accounting.urls')),
 ]
