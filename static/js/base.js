@@ -14,7 +14,6 @@ $(document).ready(function () {
         }
     }).done(function (result) {
         result = JSON.parse(result);
-        console.log(result)
         $("#twitter").attr("href", result[0].fields.url)
         $('#line').attr("href", result[1].fields.url)
         $('#facebook').attr("href", result[2].fields.url)
