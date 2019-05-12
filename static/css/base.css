@@ -3,13 +3,10 @@ body {
     height: 100%;
 }
 
-div#rows {
-    min-height: 92%;
-}
-
-body>div#rows {
+.row {
     height: auto;
     margin-right: 0;
+    min-height: 92%;
 }
 
 .col-md-12 {

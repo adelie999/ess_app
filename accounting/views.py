@@ -1,5 +1,8 @@
 """ accounting views """
 from django.views.generic import TemplateView
+from django.http.response import JsonResponse
+from django.core import serializers
+from .models import Sells
 
 
 class Sell(TemplateView):
@@ -10,3 +13,9 @@ class Sell(TemplateView):
 class Claim(TemplateView):
     """ claim class """
     template_name = 'accounting/claim.html'
+
+
+def chart(request):
+    """ chart render action """
+    data = serializers.serialize("json", Sells.objects.all())
+    return JsonResponse(data, safe=False)
