@@ -21,9 +21,9 @@
 {% block content %}
 <form action="{% url 'student:register' %}" id="register_form" name="register_form" method="POST"
     enctype="multipart/form-data">
-    <div class="row">
+    <div class="row" style="width:90em">
         {% csrf_token %}
-        <div class="col-md-5">
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="studentName">名前（生徒）</label>
                 <input type="input" name="studentName" class="form-control" id="studentName" placeholder="フルネーム">
@@ -49,7 +49,7 @@
                 <textarea name="remarks" class="form-control" id="remarks" rows="3"></textarea>
             </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="parentName">名前（保護者）</label>
                 <input type="input" name="parentName" class="form-control" id="parentName" placeholder="フルネーム">
