@@ -9,23 +9,26 @@ from .forms import StudentsForm
 class Register(CreateView):  # pylint: disable=too-many-ancestors
     """ Register class """
     model = Students
-    fields = ["name", "birthday", "age", "school_year", "address",
-              "photo_path", "payment", "parent_name", "parent_email", "parent_phone"]
 
     def get(self, request, *args, **kwargs):
         context = {"form": StudentsForm()}
         return render(request, 'student/register.html', context)
 
     def post(self, request, *args, **kwargs):
-        form = StudentsForm(request.POST, request.FILES)
+        form = StudentsForm(request.FILES)
         if form.is_valid():
             insert_query = Students()
-            # insert_query.name = form.changed_data[0]
-            # insert_query.birthday = form.changed_data[1]
-            # insert_query.age = form.changed_data[2]
-            # insert_query.school_year = form.cleaned_data[3]
-            # 後で追加する
+            insert_query.name = request.POST.get['studentName']
+            insert_query.birthday = request.POST.get['studentBirthday']
+            insert_query.age = request.POST.get['studentAge']
+            insert_query.school_year = request.POST.get['schoolYear']
+            insert_query.address = request.POST.get['studentAddress']
             insert_query.photo_path = form.cleaned_data['image']
+            insert_query.remarks = request.POST.get['remarks']
+            insert_query.parent_name = request.POST.get['parentName']
+            insert_query.parent_email = request.POST.get['parentEmail']
+            insert_query.parent_phone = request.POST.get['parentPhone']
+            insert_query.payment = request.POST.get['payment']
             insert_query.save()
         else:
             pass

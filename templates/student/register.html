@@ -19,14 +19,14 @@
 
 <!-- sub-content -->
 {% block content %}
-<div>
-    <form action="{% url 'student:register' %}" id="register_form" name="register_form" method="POST" enctype="multipart/form-data">
+<form action="{% url 'student:register' %}" id="register_form" name="register_form" method="POST"
+    enctype="multipart/form-data">
+    <div class="row">
         {% csrf_token %}
-        <div id="studentSide">
-            <h4>生徒について</h4>
+        <div class="col-md-5">
             <div class="form-group">
-                <label for="studentName">氏名</label>
-                <input type="input" name="studentName" class="form-control" id="studentName" placeholder="佐藤　太郎">
+                <label for="studentName">名前（生徒）</label>
+                <input type="input" name="studentName" class="form-control" id="studentName" placeholder="フルネーム">
             </div>
             <div class="form-group">
                 <label for="studentBirthday">生年月日</label>
@@ -49,23 +49,29 @@
                 <textarea name="remarks" class="form-control" id="remarks" rows="3"></textarea>
             </div>
         </div>
-        <div id="parentSide">
-            <h4>保護者について</h4>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="parentName">名前（保護者）</label>
+                <input type="input" name="parentName" class="form-control" id="parentName" placeholder="フルネーム">
+            </div>
             <div class="form-group">
                 <label for="parentEmail">メールアドレス</label>
-                <input type="email" name="parentEmail" class="form-control" id="parentEmail" placeholder="name@example.com">
+                <input type="email" name="parentEmail" class="form-control" id="parentEmail"
+                    placeholder="name@example.com">
             </div>
             <div class="form-group">
                 <label for="parentPhone">電話番号</label>
-                <input type="input" name="parentPhone" class="form-control" id="parentPhone" placeholder="000-0000-0000">
+                <input type="tel" name="parentPhone" class="form-control" id="parentPhone" placeholder="000-0000-0000">
             </div>
             <div class="form-group">
                 <label for="payment">月謝</label>
-                <input type="input" name="payment" class="form-control" id="payment" placeholder="3000">
+                <input type="input" name="payment" class="form-control" id="payment">
             </div>
-            <button type="submit" id="register" class="btn btn-primary">登録</button>
-            <button type="button" class="btn btn-secondary">修正</button>
+            <div class="float-right">
+                <button type="submit" id="register" class="btn btn-primary">登録</button>
+                <button type="button" class="btn btn-secondary">修正</button>
+            </div>
         </div>
-    </form>
-</div>
+    </div>
+</form>
 {% endblock %}

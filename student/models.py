@@ -16,6 +16,7 @@ class Students(models.Model):
     address = models.CharField('住所', max_length=100, default='東京都')
     photo_path = models.ImageField(
         '写真のパス', upload_to='images/')
+    remarks = models.CharField('備考', max_length=100)
     payment = models.IntegerField('月謝', default=0)
     parent_name = models.CharField('保護者氏名', max_length=30)
     parent_email = models.EmailField(
