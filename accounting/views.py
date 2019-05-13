@@ -15,6 +15,11 @@ class Claim(TemplateView):
     template_name = 'accounting/claim.html'
 
 
+class Invoice(TemplateView):
+    """ invoice class """
+    template_name = 'accounting/invoice.html'
+
+
 def chart(request):
     """ chart render action """
     data = serializers.serialize("json", Sells.objects.all())

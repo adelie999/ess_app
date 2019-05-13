@@ -8,7 +8,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 class Students(models.Model):
     """ students table """
     name = models.CharField('氏名', max_length=30)
-    birthday = models.CharField('生年月日', max_length=8)
+    birthday = models.CharField('生年月日', max_length=10)
     age = models.IntegerField(
         '年齢', validators=[MinValueValidator(1), MaxValueValidator(100)], default=7)
     school_year = models.IntegerField(

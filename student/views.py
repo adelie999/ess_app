@@ -15,20 +15,22 @@ class Register(CreateView):  # pylint: disable=too-many-ancestors
         return render(request, 'student/register.html', context)
 
     def post(self, request, *args, **kwargs):
-        form = StudentsForm(request.FILES)
+        form = StudentsForm(request.FILES, request.FILES)
+        print(request.POST)
         if form.is_valid():
             insert_query = Students()
-            insert_query.name = request.POST.get['studentName']
-            insert_query.birthday = request.POST.get['studentBirthday']
-            insert_query.age = request.POST.get['studentAge']
-            insert_query.school_year = request.POST.get['schoolYear']
-            insert_query.address = request.POST.get['studentAddress']
+            insert_query.name = request.POST.get('studentName')
+            insert_query.birthday = request.POST.get('studentBirthday')
+            insert_query.age = request.POST.get('studentAge')
+            insert_query.school_year = request.POST.get('schoolYear')
+            insert_query.address = request.POST.get('studentAddress')
             insert_query.photo_path = form.cleaned_data['image']
-            insert_query.remarks = request.POST.get['remarks']
-            insert_query.parent_name = request.POST.get['parentName']
-            insert_query.parent_email = request.POST.get['parentEmail']
-            insert_query.parent_phone = request.POST.get['parentPhone']
-            insert_query.payment = request.POST.get['payment']
+            insert_query.remarks = request.POST.get('remarks')
+            insert_query.parent_name = request.POST.get('parentName')
+            insert_query.parent_email = request.POST.get('parentEmail')
+            insert_query.parent_phone = request.POST.get('parentPhone')
+            insert_query.payment = request.POST.get('payment')
+            print("success")
             insert_query.save()
         else:
             pass

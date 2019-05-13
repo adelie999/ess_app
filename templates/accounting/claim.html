@@ -22,5 +22,5 @@
 
 <!-- sub-content -->
 {% block content %}
-<h1>あとで</h1>
+    <iframe id="frame" src="{% url 'accounting:invoice' %}" scrolling="auto"></iframe>
 {%endblock%}
