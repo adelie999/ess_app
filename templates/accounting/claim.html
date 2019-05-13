@@ -22,5 +22,9 @@
 
 <!-- sub-content -->
 {% block content %}
-    <iframe id="frame" src="{% url 'accounting:invoice' %}" scrolling="auto"></iframe>
+<iframe id="frame" src="{% url 'accounting:invoice' %}" scrolling="auto" width="500px" height="550px"></iframe>
+<button type="button" id="invoice" class="btn btn-primary">作成</button>
+
+<!-- js -->
+<script type="text/javascript" src="{% static 'js/claim.js' %}"></script>
 {%endblock%}

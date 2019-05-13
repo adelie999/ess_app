@@ -7,6 +7,7 @@ app_name = 'accounting'
 urlpatterns = [
     path('sell', Sell.as_view()),
     path('sell/chart', views.chart),
-    path('claim', Claim.as_view()),
+    path('claim', Claim.as_view(), name="claim"),
     path('claim/invoice', Invoice.as_view(), name="invoice"),
+    path('claim/invoice/pdf', views.create_pdf, name="pdf"),
 ]

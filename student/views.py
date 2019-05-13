@@ -16,7 +16,6 @@ class Register(CreateView):  # pylint: disable=too-many-ancestors
 
     def post(self, request, *args, **kwargs):
         form = StudentsForm(request.FILES, request.FILES)
-        print(request.POST)
         if form.is_valid():
             insert_query = Students()
             insert_query.name = request.POST.get('studentName')
@@ -30,7 +29,6 @@ class Register(CreateView):  # pylint: disable=too-many-ancestors
             insert_query.parent_email = request.POST.get('parentEmail')
             insert_query.parent_phone = request.POST.get('parentPhone')
             insert_query.payment = request.POST.get('payment')
-            print("success")
             insert_query.save()
         else:
             pass
