@@ -30,8 +30,15 @@ def chart(request):
 
 def create_pdf(request):
     """ pdf """
-    html_text = list(request.POST.keys())
-    print(html_text[0])
-    pdf_stream = pdfkit.from_string(html_text[0], False)
-    print(pdf_stream)
+    html_head = """
+    <head>
+    <meta charset="utf-8"/>
+    <meta name="pdfkit-page-size" content="Legal"/>
+    <meta name="pdfkit-orientation" content="Landscape"/>
+    </head> """
+    html_body = list(request.POST.keys())[0]
+    html = html_head + html_body
+    config = pdfkit.configuration(
+        wkhtmltopdf='C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe')
+    pdfkit.from_string(html, 'out.pdf', configuration=config)
     return redirect('accounting:claim')
